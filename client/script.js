@@ -10,7 +10,7 @@
 */
 
 // CODE HERE
-
+const sayHelloButton = document.querySelector("#say-hello-button");
 
 // PROBLEM 2
 /*
@@ -20,7 +20,13 @@
 */
 
 // CODE HERE
+function sayHelloChange(event)
+{
+    sayHelloButton.style.backgroundColor = "black";
+    sayHelloButton.style.color = "white";
+}
 
+sayHelloButton.addEventListener("mouseover", sayHelloChange);
 
 // PROBLEM 3
 /*
@@ -32,7 +38,13 @@
 */
 
 // CODE HERE
+function sayHelloUnchange(event)
+{
+    sayHelloButton.style.backgroundColor = "#EFEFEF";
+    sayHelloButton.style.color = "black";
+}
 
+sayHelloButton.addEventListener("mouseout", sayHelloUnchange);
 
 // PROBLEM 4
 /*
@@ -53,7 +65,7 @@ const sayHello = () => {
 // DO NOT EDIT FUNCTION
 
 // CODE HERE
-
+sayHelloButton.addEventListener("click", sayHello);
 
 // PROBLEM 5 
 /*
@@ -68,6 +80,13 @@ const sayHello = () => {
 
 const ohMy = () => {
     // YOUR CODE HERE
+    axios
+        .get("http://localhost:3000/animals")
+        .then(res =>
+            {
+                console.log(res.data)
+            })
+        .catch(err => {console.log(err)})
 }
 
 document.getElementById('animals-button').addEventListener('click', ohMy)
@@ -88,7 +107,16 @@ document.getElementById('animals-button').addEventListener('click', ohMy)
 
 const repeatMyParam = () => {
     //YOUR CODE HERE
+    axios
+        .get('http://localhost:3000/repeat/say-hello')
+        .then(res =>
+            {
+                console.log(res.data)
+            })
+        .catch(err => {console.log(err)})
 }
+
+document.getElementById('/repeat/say-hello').addEventListener('click', repeatMyParam)
 
 // PROBLEM 7
 /*
